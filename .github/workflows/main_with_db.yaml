@@ -1,4 +1,4 @@
-name: "CI build with Maven & dockerize"
+name: "CI build with Maven (with DB) & dockerize"
 
 on:
 #  push:
