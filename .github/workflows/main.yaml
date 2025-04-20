@@ -18,6 +18,6 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - name: Build with maven
-        run: mvn -B package -f pom.xml
+        run: mvn -X package -f pom.xml
     
   
