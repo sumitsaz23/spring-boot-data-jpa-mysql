@@ -1,0 +1,23 @@
+name: "CI build with Maven & dockerize"
+
+on:
+#  push:
+#    branches:
+#    - master
+  workflow_dispatch:  
+
+jobs:
+  build:
+    name: job 1 -build the jar
+    runs-on: ubuntu-latest
+    steps:
+      - uses:  actions/checkout@v4
+      - name: Set up open JDK 17
+        uses: actions/setup-java@v4.6.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Build with maven
+        run: mvn package -f pom.xml
+    
+  
