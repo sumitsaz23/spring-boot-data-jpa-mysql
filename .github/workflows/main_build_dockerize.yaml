@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: job 1 -build the jar
+    name: build the jar
     runs-on: ubuntu-latest
     services:
       db:
@@ -26,17 +26,19 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
       - name: Build with maven
-        run: mvn -X package -f pom.xml
+        run: mvn -B package -f pom.xml
        # env:
         #  SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/testdb
          # SPRING_DATASOURCE_USERNAME: root
           #SPRING_DATASOURCE_PASSWORD: root
     
-  build-and-push:
+  Docker-build-and-push:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: ls
+        run: ls -lah
       - name: Build Docker image
         run: docker build -t myapp:${{ github.sha }} .
       - name: Log in to Docker Hub
