@@ -28,10 +28,9 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
       - name: Build with maven
-        run: mvn install -f pom.xml
+        run: mvn -B package -f pom.xml
 
-      #build docker image    
-      - uses: actions/checkout@v3
+      #build docker image
       - name: ls
         run: ls -lah
       - name: Build Docker image
