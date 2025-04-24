@@ -44,9 +44,6 @@ jobs:
           docker_repo: ${{ secrets.DOCKERHUB_USERNAME }}
         run: echo "App Name - ${{env.app_name}}, Commit SHA - ${{ github.sha }}"
         
-      - name: Debug app_name and commit SHA
-        run: echo "App Name - ${{env.app_name}}, Commit SHA - ${{ github.sha }}"
-        
       - name: Build Docker image  
         run: docker build -t "${{env.app_name}}:${{ github.sha }}" .
         
