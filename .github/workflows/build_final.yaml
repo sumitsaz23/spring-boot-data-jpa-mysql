@@ -10,7 +10,7 @@ jobs:
   build:
     env:
       app_name: "springbootapp"
-      docker_repo: ${{ vars.DOCKERHUB_REPO }}
+      docker_repo: ${{ vars.TEST_REPO }}
     name: build the jar
     runs-on: ubuntu-latest
     #Deploy sql
@@ -55,5 +55,5 @@ jobs:
           
       - name: Push to Docker Hub
         run: |
-          docker tag "${{env.app_name}}:${{ github.sha }}" "${{env.docker_repo}}/${{env.app_name}}":latest
+          docker tag "${{env.app_name}}:${{ github.sha }}" "${{env.docker_repo}}":latest
           docker push "${{env.docker_repo}}/${{env.app_name}}":latest
