@@ -42,7 +42,7 @@ jobs:
         run: ls -lah
         
       - name: Debug - print ENV
-        run: echo "App Name - ${{env.app_name}}, Commit SHA - ${{ github.sha }}"
+        run: echo "App Name - ${{env.app_name}}, repo - ${{env.docker_repo}} , Commit SHA - ${{ github.sha }}"
         
       - name: Build Docker image  
         run: docker build -t "${{env.app_name}}:${{ github.sha }}" .
