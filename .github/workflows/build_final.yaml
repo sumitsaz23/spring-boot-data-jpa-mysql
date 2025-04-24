@@ -10,7 +10,7 @@ jobs:
   build:
     env:
       app_name: "springbootapp"
-      docker_repo: ${{ secrets.DOCKERHUB_USERNAME }}
+      docker_repo: ${{ vars.DOCKERHUB_REPO }}
     name: build the jar
     runs-on: ubuntu-latest
     #Deploy sql
