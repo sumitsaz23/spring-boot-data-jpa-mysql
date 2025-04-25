@@ -40,7 +40,7 @@ jobs:
       #build docker image
         
       - name: Debug - print ENV
-        run: echo "App Name - ${{env.app_name}}, repo - ${{vars.docker_repo}} , Commit SHA - ${{ github.sha }}"
+        run: echo "App Name - ${{env.app_name}}, repo - ${{vars.TEST_REPO}} , Commit SHA - ${{ github.sha }}"
         
       - name: Build Docker image  
         run: docker build -t "${{env.app_name}}:${{ github.sha }}" .
@@ -53,5 +53,5 @@ jobs:
           
       - name: Push to Docker Hub
         run: |
-          docker tag "${{env.app_name}}:${{ github.sha }}" "${{vars.docker_repo}}":latest
-          docker push "${{env.docker_repo}}/${{env.app_name}}":latest
+          docker tag "${{env.app_name}}:${{ github.sha }}" "${{vars.TEST_REPO}}":v1.1
+          docker push "${{env.docker_repo}}":v1.1
