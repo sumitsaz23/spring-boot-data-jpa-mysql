@@ -38,8 +38,6 @@ jobs:
         run: mvn -B package -f pom.xml
 
       #build docker image
-      - name: ls
-        run: ls -lah
         
       - name: Debug - print ENV
         run: echo "App Name - ${{env.app_name}}, repo - ${{env.docker_repo}} , Commit SHA - ${{ github.sha }}"
